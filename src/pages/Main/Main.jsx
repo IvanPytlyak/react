@@ -10,11 +10,12 @@ import { InputCheck } from "../../components/InputCheck/InputCheck";
 export const Main = () => {
   let realNotificationType;
 
-  const [name, setName] = useState(""); // хук динамичного изменения // useState нужен для хранения состояния, условный интерфейс отображения
+  const [name, setName] = useState(""); // хук динамичного изменения // useState нужен для хранения состояния, условный интерфейс отображения /name - переменная
   // value = 10 default
   const [age, setAge] = useState("");
 
   const [myNumber, setMyNumber] = useState("");
+  // myNumbe  это input.value?
 
   const submitUserHandler = (event) => {
     event.preventDefault(); // зачем он тут?
@@ -40,7 +41,9 @@ export const Main = () => {
       default:
         realNotificationType = "";
     }
-    console.log(realNotificationType, typeof realNotificationType);
+    return realNotificationType;
+    // console.log(realNotificationType, typeof realNotificationType);
+    // console.log(myNumber);
   };
 
   return (
@@ -60,10 +63,12 @@ export const Main = () => {
 
       <InputCheck
         setMyNumberIC={setMyNumber}
-        // присваение полученному по таргету элементу значения из хука
+        // присваение полученному по таргету элементу значения из хука? но сетер принимает значение а не отдает? \ присваеваем текущее значение пропсу, зачем?
         submitNumber={submitCheckHandler}
       />
-      <Notification notificationType={realNotificationType}></Notification>
+      {/* как связана форма с  Notification или как ее связать и нужно ли это делать?*/}
+      <Notification notificationType={submitCheckHandler}></Notification>
+      {/* realNotificationType */}
       {/*  почему не происходит присвоение класса? */}
       <Footer />
       {/* /* submitUser, submitUserHandler - Рандом name */}
