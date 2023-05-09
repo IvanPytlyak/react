@@ -15,6 +15,7 @@ export const AddUserForm = (props) => {
     <form onSubmit={props.submitUser}>
       <InputText placeholder="Name" onChangeHandler={changeName} />
       <InputText placeholder="Age" onChangeHandler={changeAge} />
+      {/*  onChangeHandler - что это такое?*/}
       <Button type="submit">Submit</Button>
     </form>
   ); // почему тут не могу добавить еще одну кнопку, только если в форму?
